@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}0LPQsNC70LXRgNC10Y8g0YDQvtCx0L7RgtC+0LI={% endblock %}
+
+{% block content %}
+<div class="images">
+{% for image in images %}
+    <img height="260px" width="auto" src="{{ url_for('static', filename='images') }}/{{ image }}">
+{% endfor %}
+</div>
+
+{% endblock %}

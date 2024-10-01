@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    <header class="nav-container">
+        <div class="logo-container">
+            <a href="/"><img width="64px" height="64px" src="/static/00001-471500676.png" alt="logo"></a>
+        </div>
+        <nav class="nav-links">
+            {% if session.get("authorized") %}
+            <a href="{{ url_for('profile') }}">Profile</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('login') }}">Auth</a>
+            {% endif %}
+        </nav>
+    </header>
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="footer">
+        <p>01110000 01110010 01101111 01101010 01100101 01100011 01110100 00100000 01100100 01100101 01110110 01100101 01101100 01101111 01110000 01100101 01100100 00100000 01100010 01111001 00100000 01100001 01101100 01110100 01110010 01101111 01101110</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="info">
+        <img class="avatar" src="{{ url_for('static', filename='cchipenaczy91.png')}}" alt="avatar">
+        <p class="username">Admin</p>
+    </div>
+    <div class="posts-container">
+        <p class="post-title">posted photo</p>
+        <div class="images">
+            <img class="post-image" src="{{ url_for('static', filename='qMSScnLk4oqXLOHrrcgPz5CbI9dYgrvlMsKytspwV0fADspz0ZaI5qYpZVdbfspjtnM8dzxLBuOnMKRhOrA0MYYPAElj32bMJx1.png') }}">
+        </div>
+    </div>
+</div>
+{% endblock %}

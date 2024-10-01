@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title%}0JDQstGC0L7RgNC40LfQsNGG0LjRjw=={% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    {% if captcha_count > 0 %}
+    <p>чтобы авторизоваться нужно подтвердить, что не человек</p>
+    <img height="100" width="200" src="data:image/png; base64, {{ image }}">
+    <form method="POST" action="check_captcha" class="auth-form">
+        <input type="text" name="value" class="auth-input">
+
+        <input type="submit" value="Подтвердить" class="auth-submit">
+    </form>
+    {% else %}
+    <form method="POST" class="auth-form">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class="flashes">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+        <label for="login">Логин</label>
+        <input type="text" name="login" id="login" class="auth-input">
+
+        <label for="pass">Пароль</label>
+        <input type="password" name="pass" id="pass" class="auth-input">
+
+        <input type="submit" value="Войти" class="auth-submit">
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,1 @@
+from vulnsite import app
